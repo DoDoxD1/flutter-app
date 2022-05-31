@@ -7,6 +7,8 @@ class BgImage extends StatelessWidget {
     return Image.asset(
       "assets/nature.jpg",
       fit: BoxFit.cover,
+      color: Colors.black.withOpacity(0.6),
+      colorBlendMode: BlendMode.darken,
     );
   }
 }
