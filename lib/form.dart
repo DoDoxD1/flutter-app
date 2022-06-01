@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/homepage.dart';
 
 class MyForm extends StatelessWidget {
+  MyForm();
   @override
   Widget build(BuildContext context) {
+    final userNameController = TextEditingController();
+    final passwordController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Center(
@@ -20,6 +22,7 @@ class MyForm extends StatelessWidget {
                       child: Column(
                         children: [
                           TextFormField(
+                              controller: userNameController,
                               decoration: InputDecoration(
                                 hintText: "Enter user name",
                                 labelText: "Username",
@@ -29,6 +32,7 @@ class MyForm extends StatelessWidget {
                             height: 20,
                           ),
                           TextFormField(
+                              controller: passwordController,
                               obscureText: true,
                               decoration: InputDecoration(
                                 hintText: "Enter password",
@@ -42,7 +46,8 @@ class MyForm extends StatelessWidget {
                   ),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, "/home");
+                      if(userNameController.text == "Readymotive" && passwordController.text == "ready@123" )
+                        Navigator.pushNamed(context, "/home");
                     },
                     child: Text("Sign In"),
                     color: Colors.redAccent,
